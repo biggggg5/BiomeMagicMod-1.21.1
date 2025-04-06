@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "bigsbiomemagicmod:block/biomechannelerend",
+    "side": "bigsbiomemagicmod:block/biomechanneler"
+  }
+}

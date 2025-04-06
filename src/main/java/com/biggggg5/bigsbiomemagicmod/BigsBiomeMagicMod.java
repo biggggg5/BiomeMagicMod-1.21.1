@@ -1,5 +1,9 @@
 package com.biggggg5.bigsbiomemagicmod;
 
+import com.biggggg5.bigsbiomemagicmod.block.ModBlocks;
+import com.biggggg5.bigsbiomemagicmod.item.ModCreativeModeTabs;
+import com.biggggg5.bigsbiomemagicmod.item.ModItems;
+import net.minecraft.world.item.CreativeModeTabs;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -44,6 +48,11 @@ public class BigsBiomeMagicMod
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
+
+        ModCreativeModeTabs.register(modEventBus);
+
+        ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
