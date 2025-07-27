@@ -1,6 +1,7 @@
 package com.biggggg5.bigsbiomemagicmod.block;
 
 import com.biggggg5.bigsbiomemagicmod.BigsBiomeMagicMod;
+import com.biggggg5.bigsbiomemagicmod.block.custom.BiomeChannelerBlock;
 import com.biggggg5.bigsbiomemagicmod.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -10,7 +11,6 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import org.apache.commons.compress.compressors.lz77support.LZ77Compressor;
 
 import java.util.function.Supplier;
 
@@ -23,9 +23,9 @@ public class ModBlocks {
                     .strength(4f).requiresCorrectToolForDrops().sound(SoundType.AMETHYST)));
     public static final DeferredBlock<Block> STRUCTUREPOD = registerBlock("structurepod",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(4f).requiresCorrectToolForDrops().sound(SoundType.WOOD)));
+                    .strength(4f).noLootTable().sound(SoundType.WOOD)));
     public static final DeferredBlock<Block> BIOMECHANNELER = registerBlock("biomechanneler",
-            () -> new Block(BlockBehaviour.Properties.of()
+            () -> new BiomeChannelerBlock(BlockBehaviour.Properties.of().noOcclusion()
                     .strength(4f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
 
 

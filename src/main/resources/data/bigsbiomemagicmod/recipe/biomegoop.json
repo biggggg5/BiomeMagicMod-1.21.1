@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "minecraft:clay_ball"
+    },
+    "G": {
+      "item": "minecraft:gunpowder"
+    },
+    "S": {
+      "item": "minecraft:slime_ball"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "W": {
+      "type": "neoforge:components",
+      "items": [
+        "minecraft:potion"
+      ],
+      "components": {
+        "potion_contents": {
+          "potion": "water"
+        }
+      }
+    }
+  },
+    "pattern": [
+      " W ",
+      "GSR",
+      " C "
+    ],
+    "result": {
+      "count": 1,
+      "id": "bigsbiomemagicmod:biomegoop"
+    }
+  }

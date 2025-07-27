@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
+    "full=false": {
       "model": "bigsbiomemagicmod:block/biomechanneler"
+    },
+    "full=true": {
+      "model": "bigsbiomemagicmod:block/active_biomechanneler"
     }
   }
 }

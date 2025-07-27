@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "minecraft:blue_ice"
+    },
+    "W": {
+      "item": "minecraft:water_bucket"
+    },
+    "L": {
+      "item": "minecraft:lapis_block"
+    },
+    "B": {
+      "item": "bigsbiomemagicmod:watersourcegem"
+    }
+  },
+    "pattern": [
+      "WIW",
+      "BLB",
+      " B "
+    ],
+    "result": {
+      "count": 1,
+      "id": "bigsbiomemagicmod:watersourcegem"
+    }
+  }

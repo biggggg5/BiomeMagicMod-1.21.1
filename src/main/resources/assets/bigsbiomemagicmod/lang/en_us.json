@@ -3,18 +3,25 @@
   "item.bigsbiomemagicmod.glassorb": "Glass Orb",
   "item.bigsbiomemagicmod.biomegoggles": "Biome Goggles",
   "item.bigsbiomemagicmod.copperstaffofsecretpower": "Copper Staff of Secret Power",
-  "item.bigsbiomemagicmod.enhancedbiomecore": "Enhanced Biome Core",
   "item.bigsbiomemagicmod.goldstaffofsecretpower": "Gold Staff of Secret Power",
   "item.bigsbiomemagicmod.ironstaffofsecretpower": "Iron Staff of Secret Power",
   "item.bigsbiomemagicmod.netheritestaffofsecretpower": "Netherite Staff of Secret Power",
   "item.bigsbiomemagicmod.staffofsecretpower": "Staff of Secret Power",
   "item.bigsbiomemagicmod.structureseeds": "Structure Seeds",
   "item.bigsbiomemagicmod.unattunedbiomecore": "Unattuned Biome Core",
+  "item.bigsbiomemagicmod.biomecore": "Biome Core",
 
   "block.bigsbiomemagicmod.watersourcegem": "Water Source Gem",
   "block.bigsbiomemagicmod.structurepod": "Structure Pod",
   "block.bigsbiomemagicmod.biomechanneler": "Biome Channeler",
 
-  "creativetab.bigsbiomemagicmod.biome_magic_items": "Big's Biome Magic"
+  "creativetab.bigsbiomemagicmod.biome_magic_items": "Big's Biome Magic",
+  "creativetab.bigsbiomemagicmod.biome_magic_catalysts": "Big's Biome Magic: Catalysts",
+
+  "effect.bigsbiomemagicmod.biome_vision": "Biome Vision",
+
+  "item.minecraft.potion.effect.biome_vision_potion": "Biome Vision Potion",
+  "item.minecraft.splash_potion.effect.biome_vision_potion": "Biome Vision Splash Potion",
+  "item.minecraft.lingering_potion.effect.biome_vision_potion": "Biome Vision Lingering Potion"
 
 }

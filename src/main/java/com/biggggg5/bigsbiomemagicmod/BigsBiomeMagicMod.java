@@ -1,9 +1,15 @@
 package com.biggggg5.bigsbiomemagicmod;
 
 import com.biggggg5.bigsbiomemagicmod.block.ModBlocks;
+import com.biggggg5.bigsbiomemagicmod.block.entity.ModBlockEntities;
+import com.biggggg5.bigsbiomemagicmod.block.entity.renderer.BiomeChannelerBlockEntityRenderer;
+import com.biggggg5.bigsbiomemagicmod.component.ModDataComponents;
+import com.biggggg5.bigsbiomemagicmod.effect.ModEffects;
 import com.biggggg5.bigsbiomemagicmod.item.ModCreativeModeTabs;
 import com.biggggg5.bigsbiomemagicmod.item.ModItems;
+import com.biggggg5.bigsbiomemagicmod.potion.ModPotions;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -54,6 +60,14 @@ public class BigsBiomeMagicMod
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
 
+        ModDataComponents.register(modEventBus);
+
+        ModEffects.register(modEventBus);
+        ModPotions.register(modEventBus);
+
+        ModBlockEntities.register(modEventBus);
+
+
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
@@ -87,6 +101,10 @@ public class BigsBiomeMagicMod
         {
 
 
+        }
+        @SubscribeEvent
+        public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
+            event.registerBlockEntityRenderer(ModBlockEntities.BIOMECHANNELER_BE.get(), BiomeChannelerBlockEntityRenderer::new);
         }
     }
 }

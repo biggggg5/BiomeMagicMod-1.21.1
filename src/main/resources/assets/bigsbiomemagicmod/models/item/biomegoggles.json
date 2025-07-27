@@ -1,6 +1,30 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "bigsbiomemagicmod:item/biomegoggles"
+  "parent": "minecraft:item/handheld",
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "parent": "bigsbiomemagicmod:item/biomegoggles_3d"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "bigsbiomemagicmod:item/biomegoggles_2d"
+    },
+    "ground": {
+      "parent": "bigsbiomemagicmod:item/biomegoggles_2d"
+    },
+    "fixed": {
+      "parent": "bigsbiomemagicmod:item/biomegoggles_2d"
+    },
+    "firstperson_righthand": {
+        "parent": "bigsbiomemagicmod:item/biomegoggles_2d"
+      },
+    "firstperson_lefthand": {
+        "parent": "bigsbiomemagicmod:item/biomegoggles_2d"
+      },
+    "thirdperson_righthand": {
+        "parent": "bigsbiomemagicmod:item/biomegoggles_2d"
+      },
+    "thirdperson_lefthand": {
+        "parent": "bigsbiomemagicmod:item/biomegoggles_2d"
+    }
   }
 }

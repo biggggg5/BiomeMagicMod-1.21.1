@@ -3,7 +3,7 @@
 	"textures": {
 		"0": "minecraft:block/obsidian",
 		"1": "bigsbiomemagicmod:block/amethyst_holders",
-		"3": "bigsbiomemagicmod:block/channels",
+		"3": "bigsbiomemagicmod:block/active_channels",
 		"particle": "minecraft:block/obsidian"
 	},
 	"elements": [
