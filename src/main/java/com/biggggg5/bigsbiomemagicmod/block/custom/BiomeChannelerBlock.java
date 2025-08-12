@@ -1,8 +1,11 @@
 package com.biggggg5.bigsbiomemagicmod.block.custom;
 
 import com.biggggg5.bigsbiomemagicmod.block.entity.BiomeChannelerBlockEntity;
+import com.biggggg5.bigsbiomemagicmod.block.entity.ModBlockEntities;
+import com.biggggg5.bigsbiomemagicmod.component.ModDataComponents;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -14,6 +17,8 @@ import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
@@ -65,7 +70,7 @@ public static final BooleanProperty FULL = BooleanProperty.create("full");
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
 
         if (level.getBlockEntity(pos) instanceof BiomeChannelerBlockEntity biomeChannelerBlockEntity) {
-            if(biomeChannelerBlockEntity.inventory.getStackInSlot(0).isEmpty() && !stack.isEmpty()){
+            if(biomeChannelerBlockEntity.inventory.getStackInSlot(0).isEmpty() && !stack.isEmpty() && stack.has(ModDataComponents.BIOMELOCATION) && stack.has(ModDataComponents.BIOMECATALYST)){
                 biomeChannelerBlockEntity.inventory.insertItem(0, stack.copy(), false);
                 stack.shrink(1);
                 level.playSound(player, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 2f);
@@ -78,7 +83,19 @@ public static final BooleanProperty FULL = BooleanProperty.create("full");
                 level.playSound(player, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 1f);
                 level.setBlockAndUpdate(pos, state.setValue(FULL, false));
             }
+
         }
         return ItemInteractionResult.SUCCESS;
+    }
+
+    @Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntityType) {
+        if(level.isClientSide()) {
+            return null;
+        }
+
+        return createTickerHelper(blockEntityType, ModBlockEntities.BIOMECHANNELER_BE.get(),
+                (level1, blockPos, blockState, blockEntity) -> blockEntity.tick(level1, blockPos, blockState));
     }
 }
