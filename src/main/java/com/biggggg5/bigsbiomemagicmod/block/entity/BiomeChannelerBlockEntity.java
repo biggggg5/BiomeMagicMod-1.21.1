@@ -2,6 +2,7 @@ package com.biggggg5.bigsbiomemagicmod.block.entity;
 
 import com.biggggg5.bigsbiomemagicmod.component.ModDataComponents;
 import net.minecraft.core.*;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -39,14 +40,14 @@ import static com.biggggg5.bigsbiomemagicmod.block.custom.BiomeChannelerBlock.FU
 public class BiomeChannelerBlockEntity extends BlockEntity {
     public final ItemStackHandler inventory = new ItemStackHandler(1) {
         @Override
-        protected int getStackLimit(int slot, ItemStack stack) {
+        protected int getStackLimit(int slot, @NotNull ItemStack stack) {
             return 1;
         }
 
         @Override
         protected void onContentsChanged(int slot) {
             setChanged();
-            if (!level.isClientSide()) {
+            if (level != null && !level.isClientSide()) {
                 level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
             }
         }
@@ -76,8 +77,10 @@ public class BiomeChannelerBlockEntity extends BlockEntity {
             inv.setItem(i, inventory.getStackInSlot(i));
         }
 
+        if (this.level != null) {
             Containers.dropContents(this.level, this.worldPosition, inv);
         }
+    }
 
 
 
@@ -98,7 +101,10 @@ public class BiomeChannelerBlockEntity extends BlockEntity {
         if (coreInserted()) {
             ResourceLocation biome = inventory.getStackInSlot(0).get(ModDataComponents.BIOMELOCATION);
             ResourceLocation catalyst = inventory.getStackInSlot(0).get(ModDataComponents.BIOMECATALYST);
-            ResourceKey<Biome> biomeKey = ResourceKey.create(Registries.BIOME, biome);
+            ResourceKey<Biome> biomeKey = null;
+            if (biome != null) {
+                biomeKey = ResourceKey.create(Registries.BIOME, biome);
+            }
             Block targetBlock = level.registryAccess().registryOrThrow(Registries.BLOCK).get(catalyst);
 
             loopSound();
@@ -110,15 +116,17 @@ public class BiomeChannelerBlockEntity extends BlockEntity {
     private void biomeProcess(Level level, ResourceKey<Biome> biomeKey) {
         ResourceLocation catalyst = inventory.getStackInSlot(0).get(ModDataComponents.BIOMECATALYST);
 
-        if (countdown == 3 && blockCount >= 50) {
-            level.playSound (null, getBlockPos(), SoundEvents.PLAYER_LEVELUP, SoundSource.BLOCKS, 1.0f, 1.0f );
+        if (countdown == 4 && blockCount >= 50) {
+            level.playSound (null, getBlockPos(), SoundEvents.BEACON_DEACTIVATE, SoundSource.BLOCKS, 2.0f, 2.5f );
             changeBiome(biomeKey);
             clearContents();
-        } else if (blockCount < 50 && countdown == 3) {
-            level.playSound (null, getBlockPos(), SoundEvents.GENERIC_DEATH, SoundSource.BLOCKS, 1.0f, 1.0f );
+            spawnFinishParticles((ServerLevel) level);
+        } else if (blockCount < 50 && countdown == 4) {
+            level.playSound (null, getBlockPos(), SoundEvents.BEACON_DEACTIVATE, SoundSource.BLOCKS, 2.0f, 1.0f );
             drops();
             ServerPlayer player = (ServerPlayer) level.getNearestPlayer(getBlockPos().getX(), getBlockPos().getY(), getBlockPos().getZ(), 5.0, true);
             if (player != null) {
+                //Tie this to lang thing
                 player.displayClientMessage(Component.literal("The ritual has failed due to insufficient terraforming. "+ (50-blockCount) + " more "+ catalyst.getPath() +" needed."), false);
             }
         }
@@ -219,10 +227,19 @@ public class BiomeChannelerBlockEntity extends BlockEntity {
     private void loopSound() {
         soundTicker++;
         if (soundTicker >= 20) {
-            level.playSound (null, getBlockPos(), SoundEvents.BREWING_STAND_BREW, SoundSource.BLOCKS, 1.2f, 1.0f );
+            if (countdown < 3){
+                level.playSound (null, getBlockPos(), SoundEvents.BREWING_STAND_BREW, SoundSource.BLOCKS, 1.2f, 1.0f );
+            }
             soundTicker = 0;
             countdown++;
         }
+    }
+
+    private void spawnFinishParticles(ServerLevel level) {
+        double x = this.getBlockPos().getX();
+        double y = this.getBlockPos().getY();
+        double z = this.getBlockPos().getZ();
+        level.sendParticles(ParticleTypes.FIREWORK, x, y + 0.5f, z, 20, 1f, 1f,1f,0.25f);
     }
 
     private void returnToDefault() {

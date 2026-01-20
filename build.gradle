@@ -18,6 +18,13 @@ group = mod_group_id
 
 repositories {
     mavenLocal()
+    maven {
+        name = 'CurseMaven'
+        url = 'https://cursemaven.com'
+        content {
+            includeGroup "curse.maven"
+        }
+    }
 }
 
 base {
@@ -112,6 +119,13 @@ configurations {
 }
 
 dependencies {
+
+  //  implementation "curse.maven:jei-238222:6829086"
+  //  implementation "curse.maven:skyblock-builder-446691:6952774"
+   // implementation "curse.maven:libx-412525:6698428"
+    implementation "curse.maven:mekanism-268560:7132168"
+    implementation "curse.maven:jade-324717:7428884"
+
     // Example optional mod dependency with JEI
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly "mezz.jei:jei-${mc_version}-common-api:${jei_version}"

@@ -19,6 +19,9 @@ public class ModDataComponents {
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<ResourceLocation>> BIOMECATALYST = register("biomecatalyst",
             builder -> builder.persistent(ResourceLocation.CODEC));
 
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<ResourceLocation>> STRUCTURELOCATION = register("structurelocation",
+            builder -> builder.persistent(ResourceLocation.CODEC));
+
 
     private  static <T>DeferredHolder<DataComponentType<?>, DataComponentType<T>> register(String name,
                                                                                            UnaryOperator<DataComponentType.Builder<T>> builderOperator) {

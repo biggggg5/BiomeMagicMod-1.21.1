@@ -30,10 +30,21 @@ public class BiomeCoreItem extends Item {
     }
 
     @Override
+    public Component getName(ItemStack stack) {
+        ResourceLocation biome = stack.get(ModDataComponents.BIOMELOCATION);
+
+        if (stack.has(ModDataComponents.BIOMELOCATION))
+            //Tie this to lang thing
+            return Component.literal("Biome Core: " + biome.getPath());
+        return super.getName(stack);
+    }
+
+    @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
         ResourceLocation biome = stack.get(ModDataComponents.BIOMELOCATION);
 
         if (biome != null) {
+            //Tie this to lang thing
             tooltipComponents.add(Component.literal("Attuned to the " + biome.getPath()));
         } else tooltipComponents.add(Component.literal("This orb is unattuned and will not function. (Creative Only)"));
 

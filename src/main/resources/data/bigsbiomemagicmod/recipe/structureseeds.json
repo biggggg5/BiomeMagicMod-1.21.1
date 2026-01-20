@@ -2,26 +2,29 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "I": {
-      "item": "minecraft:blue_ice"
-    },
-    "W": {
-      "item": "minecraft:water_bucket"
+    "G": {
+      "item": "bigsbiomemagicmod:biomegoop"
     },
     "L": {
-      "item": "minecraft:lapis_block"
+      "item": "minecraft:lava_bucket"
+    },
+    "C": {
+      "item": "minecraft:crafter"
+    },
+    "S": {
+      "item": "minecraft:wheat_seeds"
     },
     "B": {
       "item": "bigsbiomemagicmod:watersourcegem"
     }
   },
     "pattern": [
-      "WIW",
-      "BLB",
+      "LGL",
+      "CSC",
       " B "
     ],
     "result": {
       "count": 1,
-      "id": "bigsbiomemagicmod:watersourcegem"
+      "id": "bigsbiomemagicmod:structureseeds"
     }
   }

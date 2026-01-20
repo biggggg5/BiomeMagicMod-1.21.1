@@ -2,7 +2,11 @@ package com.biggggg5.bigsbiomemagicmod.block;
 
 import com.biggggg5.bigsbiomemagicmod.BigsBiomeMagicMod;
 import com.biggggg5.bigsbiomemagicmod.block.custom.BiomeChannelerBlock;
+import com.biggggg5.bigsbiomemagicmod.block.custom.StructurePodBlock;
+import com.biggggg5.bigsbiomemagicmod.block.custom.UnripeStructurePodBlock;
+import com.biggggg5.bigsbiomemagicmod.block.custom.WaterSourceGemBlock;
 import com.biggggg5.bigsbiomemagicmod.item.ModItems;
+import com.biggggg5.bigsbiomemagicmod.item.custom.StructurePodItem;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -12,6 +16,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
+import java.util.Objects;
 import java.util.function.Supplier;
 
 public class ModBlocks {
@@ -19,11 +24,14 @@ public class ModBlocks {
             DeferredRegister.createBlocks(BigsBiomeMagicMod.MOD_ID);
 
     public static final DeferredBlock<Block> WATERSOURCEGEM = registerBlock("watersourcegem",
-            () -> new Block(BlockBehaviour.Properties.of()
+            () -> new WaterSourceGemBlock(BlockBehaviour.Properties.of()
                     .strength(4f).requiresCorrectToolForDrops().sound(SoundType.AMETHYST)));
     public static final DeferredBlock<Block> STRUCTUREPOD = registerBlock("structurepod",
-            () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(4f).noLootTable().sound(SoundType.WOOD)));
+            () -> new StructurePodBlock(BlockBehaviour.Properties.of()
+                    .strength(3f).noLootTable().sound(SoundType.WOOD)));
+    public static final DeferredBlock<Block> UNRIPESTRUCTUREPOD = registerBlock("unripestructurepod",
+            () -> new UnripeStructurePodBlock(BlockBehaviour.Properties.of().noOcclusion()
+                    .strength(3f).noLootTable().sound(SoundType.WOOD)));
     public static final DeferredBlock<Block> BIOMECHANNELER = registerBlock("biomechanneler",
             () -> new BiomeChannelerBlock(BlockBehaviour.Properties.of().noOcclusion()
                     .strength(4f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
@@ -36,7 +44,10 @@ public class ModBlocks {
     }
 
     private static <T extends Block> void registerBlockItem(String name, DeferredBlock<T> block) {
-        ModItems.ITEMS.register(name, () ->new BlockItem(block.get(), new Item.Properties()));
+        if (Objects.equals(name, "structurepod")) {
+            ModItems.ITEMS.register(name, () -> new StructurePodItem(block.get(), new Item.Properties()));
+
+        } else ModItems.ITEMS.register(name, () ->new BlockItem(block.get(), new Item.Properties()));
     }
 
 

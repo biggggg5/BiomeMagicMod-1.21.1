@@ -8,6 +8,7 @@ import com.biggggg5.bigsbiomemagicmod.effect.ModEffects;
 import com.biggggg5.bigsbiomemagicmod.item.ModCreativeModeTabs;
 import com.biggggg5.bigsbiomemagicmod.item.ModItems;
 import com.biggggg5.bigsbiomemagicmod.potion.ModPotions;
+import com.biggggg5.bigsbiomemagicmod.recipe.ModRecipes;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import org.slf4j.Logger;
@@ -67,6 +68,8 @@ public class BigsBiomeMagicMod
 
         ModBlockEntities.register(modEventBus);
 
+        ModRecipes.register(modEventBus);
+
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -93,7 +96,7 @@ public class BigsBiomeMagicMod
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-    @EventBusSubscriber(modid = MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    @EventBusSubscriber(modid = MOD_ID, value = Dist.CLIENT)
     public static class ClientModEvents
     {
         @SubscribeEvent

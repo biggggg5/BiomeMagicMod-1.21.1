@@ -376,6 +376,221 @@ public class ModCreativeModeTabs {
                         woodedbadlandscore.set(ModDataComponents.BIOMECATALYST, ResourceLocation.withDefaultNamespace("red_sand"));
                         output.accept(woodedbadlandscore);
 
+                        ItemStack pillagerpod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        pillagerpod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.withDefaultNamespace("pillager_outpost"));
+                        output.accept(pillagerpod);
+
+                        ItemStack mineshaftpod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        mineshaftpod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.withDefaultNamespace("mineshaft"));
+                        output.accept(mineshaftpod);
+
+                        ItemStack mesamineshaftpod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        mesamineshaftpod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.withDefaultNamespace("mineshaft_mesa"));
+                        output.accept(mesamineshaftpod);
+
+                        ItemStack mansionpod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        mansionpod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.withDefaultNamespace("mansion"));
+                        output.accept(mansionpod);
+
+                        ItemStack junglepod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        junglepod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.withDefaultNamespace("jungle_pyramid"));
+                        output.accept(junglepod);
+
+                        ItemStack pyramidpod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        pyramidpod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.withDefaultNamespace("desert_pyramid"));
+                        output.accept(pyramidpod);
+
+                        ItemStack igloopod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        igloopod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.withDefaultNamespace("igloo"));
+                        output.accept(igloopod);
+
+                        ItemStack shipwreckpod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        shipwreckpod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.withDefaultNamespace("shipwreck"));
+                        output.accept(shipwreckpod);
+
+                        ItemStack beachwreckpod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        beachwreckpod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.withDefaultNamespace("shipwreck_beached"));
+                        output.accept(beachwreckpod);
+
+                        ItemStack swamphutpod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        swamphutpod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.withDefaultNamespace("swamp_hut"));
+                        output.accept(swamphutpod);
+
+                        ItemStack strongholdpod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        strongholdpod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.withDefaultNamespace("stronghold"));
+                        output.accept(strongholdpod);
+
+                        ItemStack monumentpod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        monumentpod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.withDefaultNamespace("monument"));
+                        output.accept(monumentpod);
+
+                        ItemStack coldruinpod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        coldruinpod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.withDefaultNamespace("ocean_ruin_cold"));
+                        output.accept(coldruinpod);
+
+                        ItemStack warmruinpod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        warmruinpod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.withDefaultNamespace("ocean_ruin_warm"));
+                        output.accept(warmruinpod);
+
+                        ItemStack netherfortresspod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        netherfortresspod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.withDefaultNamespace("fortress"));
+                        output.accept(netherfortresspod);
+
+                        ItemStack netherfossilpod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        netherfossilpod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.withDefaultNamespace("nether_fossil"));
+                        output.accept(netherfossilpod);
+
+                        ItemStack endcitypod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        endcitypod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.withDefaultNamespace("end_city"));
+                        output.accept(endcitypod);
+
+                        ItemStack buriedpod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        buriedpod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.withDefaultNamespace("buried_treasure"));
+                        output.accept(buriedpod);
+
+                        ItemStack bastionpod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        bastionpod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.withDefaultNamespace("bastion_remnant"));
+                        output.accept(bastionpod);
+
+                        ItemStack plainsvillagepod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        plainsvillagepod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.withDefaultNamespace("village_plains"));
+                        output.accept(plainsvillagepod);
+
+                        ItemStack desertvillagepod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        desertvillagepod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.withDefaultNamespace("village_desert"));
+                        output.accept(desertvillagepod);
+
+                        ItemStack savannavillagepod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        savannavillagepod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.withDefaultNamespace("village_savanna"));
+                        output.accept(savannavillagepod);
+
+                        ItemStack snowyvillagepod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        snowyvillagepod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.withDefaultNamespace("village_snowy"));
+                        output.accept(snowyvillagepod);
+
+                        ItemStack taigavillagepod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        taigavillagepod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.withDefaultNamespace("village_taiga"));
+                        output.accept(taigavillagepod);
+
+                        ItemStack ruinedpportalpod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        ruinedpportalpod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.withDefaultNamespace("ruined_portal"));
+                        output.accept(ruinedpportalpod);
+
+                        ItemStack desertruinedpportalpod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        desertruinedpportalpod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.withDefaultNamespace("ruined_portal_desert"));
+                        output.accept(desertruinedpportalpod);
+
+                        ItemStack jungleruinedpportalpod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        jungleruinedpportalpod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.withDefaultNamespace("ruined_portal_jungle"));
+                        output.accept(jungleruinedpportalpod);
+
+                        ItemStack swampruinedpportalpod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        swampruinedpportalpod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.withDefaultNamespace("ruined_portal_swamp"));
+                        output.accept(swampruinedpportalpod);
+
+                        ItemStack mountainruinedpportalpod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        mountainruinedpportalpod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.withDefaultNamespace("ruined_portal_mountain"));
+                        output.accept(mountainruinedpportalpod);
+
+                        ItemStack oceanruinedpportalpod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        oceanruinedpportalpod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.withDefaultNamespace("ruined_portal_ocean"));
+                        output.accept(oceanruinedpportalpod);
+
+                        ItemStack netherruinedpportalpod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        netherruinedpportalpod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.withDefaultNamespace("ruined_portal_nether"));
+                        output.accept(netherruinedpportalpod);
+
+                        ItemStack ancientcitypod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        ancientcitypod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.withDefaultNamespace("ancient_city"));
+                        output.accept(ancientcitypod);
+
+                        ItemStack trialruinspod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        trialruinspod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.withDefaultNamespace("trail_ruins"));
+                        output.accept(trialruinspod);
+
+                        ItemStack trialchamberspod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        trialchamberspod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.withDefaultNamespace("trial_chambers"));
+                        output.accept(trialchamberspod);
+
+                        ItemStack minioutpostpod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        minioutpostpod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "mini_outpost"));
+                        output.accept(minioutpostpod);
+
+                        ItemStack minimineshaftpostpod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        minimineshaftpostpod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "mini_mineshaft"));
+                        output.accept(minimineshaftpostpod);
+
+                        ItemStack minijunglepod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        minijunglepod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "mini_jungle_pyramid"));
+                        output.accept(minijunglepod);
+
+                        ItemStack minidesertpod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        minidesertpod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "mini_desert_pyramid"));
+                        output.accept(minidesertpod);
+
+                        ItemStack miniigloopod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        miniigloopod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "mini_igloo"));
+                        output.accept(miniigloopod);
+
+                        ItemStack minishipwreckpod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        minishipwreckpod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "mini_shipwreck"));
+                        output.accept(minishipwreckpod);
+
+                        ItemStack ministrongholdpod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        ministrongholdpod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "mini_stronghold"));
+                        output.accept(ministrongholdpod);
+
+                        ItemStack minimonumentpod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        minimonumentpod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "mini_monument"));
+                        output.accept(minimonumentpod);
+
+                        ItemStack minioceanruinspod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        minioceanruinspod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "mini_ocean_ruins"));
+                        output.accept(minioceanruinspod);
+
+                        ItemStack minifortresspod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        minifortresspod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "mini_fortress"));
+                        output.accept(minifortresspod);
+
+                        ItemStack minitreasurepod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        minitreasurepod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "mini_buried_treasure"));
+                        output.accept(minitreasurepod);
+
+                        ItemStack minimansion = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        minimansion.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "mini_mansion"));
+                        output.accept(minimansion);
+
+                        ItemStack miniendcity = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        miniendcity.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "mini_end_city"));
+                        output.accept(miniendcity);
+
+                        ItemStack minivillage = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        minivillage.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "mini_village"));
+                        output.accept(minivillage);
+
+                        ItemStack miniancientcity = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        miniancientcity.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "mini_ancient_city"));
+                        output.accept(miniancientcity);
+
+                        ItemStack minitrailruin = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        minitrailruin.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "mini_trail_ruin"));
+                        output.accept(minitrailruin);
+
+                        ItemStack minibastion = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        minibastion.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "mini_bastion"));
+                        output.accept(minibastion);
+
+                        ItemStack minitrialchamber = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        minitrialchamber.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "mini_trial_chamber"));
+                        output.accept(minitrialchamber);
+
+
+                        ItemStack moguspostpod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+                        moguspostpod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "mogus"));
+                        output.accept(moguspostpod);
+
+
+
 
 
 

@@ -3,6 +3,7 @@ package com.biggggg5.bigsbiomemagicmod.item;
 import com.biggggg5.bigsbiomemagicmod.BigsBiomeMagicMod;
 import com.biggggg5.bigsbiomemagicmod.item.custom.BiomeCoreItem;
 import com.biggggg5.bigsbiomemagicmod.item.custom.BiomeGogglesItem;
+import com.biggggg5.bigsbiomemagicmod.item.custom.StructureSeedItem;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
@@ -27,7 +28,7 @@ public class ModItems {
     public static final DeferredItem <Item> STAFFOFSECRETPOWER = ITEMS.register("staffofsecretpower",
             () -> new Item(new Item.Properties()));
     public static final DeferredItem <Item> STRUCTURESEEDS = ITEMS.register("structureseeds",
-            () -> new Item(new Item.Properties()));
+            () -> new StructureSeedItem(new Item.Properties()));
     public static final DeferredItem <Item> UNATTUNEDBIOMECORE = ITEMS.register("unattunedbiomecore",
             () -> new Item(new Item.Properties()));
     public static final DeferredItem <Item> BIOMECORE = ITEMS.register("biomecore",

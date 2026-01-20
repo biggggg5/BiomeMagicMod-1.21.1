@@ -72,7 +72,7 @@ public static final BooleanProperty FULL = BooleanProperty.create("full");
         if (level.getBlockEntity(pos) instanceof BiomeChannelerBlockEntity biomeChannelerBlockEntity) {
             if(biomeChannelerBlockEntity.inventory.getStackInSlot(0).isEmpty() && !stack.isEmpty() && stack.has(ModDataComponents.BIOMELOCATION) && stack.has(ModDataComponents.BIOMECATALYST)){
                 biomeChannelerBlockEntity.inventory.insertItem(0, stack.copy(), false);
-                stack.shrink(1);
+                if (!player.isCreative())stack.shrink(1);
                 level.playSound(player, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 2f);
                 level.setBlockAndUpdate(pos, state.setValue(FULL, true));
 

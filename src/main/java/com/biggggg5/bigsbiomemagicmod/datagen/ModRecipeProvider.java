@@ -1,6 +1,8 @@
 package com.biggggg5.bigsbiomemagicmod.datagen;
 
+import com.biggggg5.bigsbiomemagicmod.block.ModBlocks;
 import com.biggggg5.bigsbiomemagicmod.component.ModDataComponents;
+import com.biggggg5.bigsbiomemagicmod.datagen.Builders.UnripeStructurePodRecipeBuilder;
 import com.biggggg5.bigsbiomemagicmod.item.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -942,4 +944,266 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 //                .save(recipeOutput, "bigsbiomemagicmod:biomecore_blank");
 //
 // }
+
+        ItemStack pillagerPod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        pillagerPod.set(ModDataComponents.STRUCTURELOCATION.get(), ResourceLocation.withDefaultNamespace("pillager_outpost"));
+        UnripeStructurePodRecipeBuilder.recipe(pillagerPod, Items.DARK_OAK_PLANKS, Items.ARROW)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_pillager_outpost"));
+
+        ItemStack mineshaftPod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        mineshaftPod.set(ModDataComponents.STRUCTURELOCATION.get(), ResourceLocation.withDefaultNamespace("mineshaft"));
+        UnripeStructurePodRecipeBuilder.recipe(mineshaftPod, Items.RAIL, Items.STONE)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_mineshaft"));
+
+        ItemStack mesaMineshaftPod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        mesaMineshaftPod.set(ModDataComponents.STRUCTURELOCATION.get(), ResourceLocation.withDefaultNamespace("mineshaft_mesa"));
+        UnripeStructurePodRecipeBuilder.recipe(mesaMineshaftPod, Items.RAIL, Items.TERRACOTTA)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_mineshaft_mesa"));
+
+        ItemStack mansionPod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        mansionPod.set(ModDataComponents.STRUCTURELOCATION.get(), ResourceLocation.withDefaultNamespace("mansion"));
+        UnripeStructurePodRecipeBuilder.recipe(mansionPod, Items.DARK_OAK_PLANKS, Items.EMERALD)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_mansion"));
+
+        ItemStack junglePod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        junglePod.set(ModDataComponents.STRUCTURELOCATION.get(), ResourceLocation.withDefaultNamespace("jungle_pyramid"));
+        UnripeStructurePodRecipeBuilder.recipe(junglePod, Items.MOSSY_COBBLESTONE, Items.VINE)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_jungle_pyramid"));
+
+        ItemStack desertPod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        desertPod.set(ModDataComponents.STRUCTURELOCATION.get(), ResourceLocation.withDefaultNamespace("desert_pyramid"));
+        UnripeStructurePodRecipeBuilder.recipe(desertPod, Items.SANDSTONE, Items.SAND)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_desert_pyramid"));
+
+        ItemStack iglooPod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        iglooPod.set(ModDataComponents.STRUCTURELOCATION.get(), ResourceLocation.withDefaultNamespace("igloo"));
+        UnripeStructurePodRecipeBuilder.recipe(iglooPod, Items.SNOW_BLOCK, Items.STONE_BRICKS)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_igloo"));
+
+        ItemStack shipwreckPod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        shipwreckPod.set(ModDataComponents.STRUCTURELOCATION.get(), ResourceLocation.withDefaultNamespace("shipwreck"));
+        UnripeStructurePodRecipeBuilder.recipe(shipwreckPod, Items.OAK_PLANKS, Items.OAK_LOG)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_shipwreck"));
+
+        ItemStack beachedShipwreckPod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        beachedShipwreckPod.set(ModDataComponents.STRUCTURELOCATION.get(), ResourceLocation.withDefaultNamespace("shipwreck_beached"));
+        UnripeStructurePodRecipeBuilder.recipe(beachedShipwreckPod, Items.SAND, Items.OAK_LOG)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_shipwreck_beached"));
+
+        ItemStack swampHutPod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        swampHutPod.set(ModDataComponents.STRUCTURELOCATION.get(), ResourceLocation.withDefaultNamespace("swamp_hut"));
+        UnripeStructurePodRecipeBuilder.recipe(swampHutPod, Items.SPRUCE_PLANKS, Items.LILY_PAD)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_swamp_hut"));
+
+        ItemStack strongholdPod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        strongholdPod.set(ModDataComponents.STRUCTURELOCATION.get(), ResourceLocation.withDefaultNamespace("stronghold"));
+        UnripeStructurePodRecipeBuilder.recipe(strongholdPod, Items.ENDER_EYE, Items.STONE_BRICKS)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_stronghold"));
+
+        ItemStack monumentPod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        monumentPod.set(ModDataComponents.STRUCTURELOCATION.get(), ResourceLocation.withDefaultNamespace("monument"));
+        UnripeStructurePodRecipeBuilder.recipe(monumentPod, Items.COD, Items.PRISMARINE_SHARD)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_monument"));
+
+        ItemStack coldOceanPod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        coldOceanPod.set(ModDataComponents.STRUCTURELOCATION.get(), ResourceLocation.withDefaultNamespace("ocean_ruin_cold"));
+        UnripeStructurePodRecipeBuilder.recipe(coldOceanPod, Items.STONE_BRICKS, Items.GRAVEL)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_ocean_ruin_cold"));
+
+        ItemStack warmOceanPod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        warmOceanPod.set(ModDataComponents.STRUCTURELOCATION.get(), ResourceLocation.withDefaultNamespace("ocean_ruin_warm"));
+        UnripeStructurePodRecipeBuilder.recipe(warmOceanPod, Items.CUT_SANDSTONE, Items.POLISHED_GRANITE)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_ocean_ruin_warm"));
+
+        ItemStack fortressPod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        fortressPod.set(ModDataComponents.STRUCTURELOCATION.get(), ResourceLocation.withDefaultNamespace("fortress"));
+        UnripeStructurePodRecipeBuilder.recipe(fortressPod, Items.NETHER_BRICK, Items.GOLD_INGOT)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_fortress"));
+
+        ItemStack fossilPod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        fossilPod.set(ModDataComponents.STRUCTURELOCATION.get(), ResourceLocation.withDefaultNamespace("nether_fossil"));
+        UnripeStructurePodRecipeBuilder.recipe(fossilPod, Items.BONE_MEAL, Items.BONE_MEAL)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_nether_fossil"));
+
+        ItemStack endCityPod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        endCityPod.set(ModDataComponents.STRUCTURELOCATION.get(), ResourceLocation.withDefaultNamespace("end_city"));
+        UnripeStructurePodRecipeBuilder.recipe(endCityPod, Items.POPPED_CHORUS_FRUIT, Items.END_STONE)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_end_city"));
+
+        ItemStack buriedTreasurePod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        buriedTreasurePod.set(ModDataComponents.STRUCTURELOCATION.get(), ResourceLocation.withDefaultNamespace("buried_treasure"));
+        UnripeStructurePodRecipeBuilder.recipe(buriedTreasurePod, Items.CHEST, Items.MAP)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_buried_treasure"));
+
+        ItemStack bastionRemnentPod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        bastionRemnentPod.set(ModDataComponents.STRUCTURELOCATION.get(), ResourceLocation.withDefaultNamespace("bastion_remnant"));
+        UnripeStructurePodRecipeBuilder.recipe(bastionRemnentPod, Items.BLACKSTONE, Items.GOLD_INGOT)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_bastion_remnant"));
+
+        ItemStack plainsVillagePod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        plainsVillagePod.set(ModDataComponents.STRUCTURELOCATION.get(), ResourceLocation.withDefaultNamespace("village_plains"));
+        UnripeStructurePodRecipeBuilder.recipe(plainsVillagePod, Items.DIRT, Items.EMERALD)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_village_plains"));
+
+        ItemStack desertVillagePod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        desertVillagePod.set(ModDataComponents.STRUCTURELOCATION.get(), ResourceLocation.withDefaultNamespace("village_desert"));
+        UnripeStructurePodRecipeBuilder.recipe(desertVillagePod, Items.SAND, Items.EMERALD)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_village_desert"));
+
+        ItemStack savannaVillagePod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        savannaVillagePod.set(ModDataComponents.STRUCTURELOCATION.get(), ResourceLocation.withDefaultNamespace("village_savanna"));
+        UnripeStructurePodRecipeBuilder.recipe(savannaVillagePod, Items.ACACIA_LOG, Items.EMERALD)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_village_savanna"));
+
+        ItemStack snowyVillagePod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        snowyVillagePod.set(ModDataComponents.STRUCTURELOCATION.get(), ResourceLocation.withDefaultNamespace("village_snowy"));
+        UnripeStructurePodRecipeBuilder.recipe(snowyVillagePod, Items.SNOW_BLOCK, Items.EMERALD)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_village_snowy"));
+
+        ItemStack taigaVillagePod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        taigaVillagePod.set(ModDataComponents.STRUCTURELOCATION.get(), ResourceLocation.withDefaultNamespace("village_taiga"));
+        UnripeStructurePodRecipeBuilder.recipe(taigaVillagePod, Items.SPRUCE_LOG, Items.EMERALD)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_village_taiga"));
+
+        ItemStack ruinedPortalPod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        ruinedPortalPod.set(ModDataComponents.STRUCTURELOCATION.get(), ResourceLocation.withDefaultNamespace("ruined_portal"));
+        UnripeStructurePodRecipeBuilder.recipe(ruinedPortalPod, Items.CRYING_OBSIDIAN, Items.GOLD_NUGGET)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_ruined_portal"));
+
+        ItemStack ruinedDesertPortalPod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        ruinedDesertPortalPod.set(ModDataComponents.STRUCTURELOCATION.get(), ResourceLocation.withDefaultNamespace("ruined_portal_desert"));
+        UnripeStructurePodRecipeBuilder.recipe(ruinedDesertPortalPod, Items.CRYING_OBSIDIAN, Items.SAND)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_ruined_portal_desert"));
+
+        ItemStack ruinedJunglePortalPod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        ruinedJunglePortalPod.set(ModDataComponents.STRUCTURELOCATION.get(), ResourceLocation.withDefaultNamespace("ruined_portal_jungle"));
+        UnripeStructurePodRecipeBuilder.recipe(ruinedJunglePortalPod, Items.CRYING_OBSIDIAN, Items.VINE)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_ruined_portal_jungle"));
+
+        ItemStack ruinedSwampPortalPod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        ruinedSwampPortalPod.set(ModDataComponents.STRUCTURELOCATION.get(), ResourceLocation.withDefaultNamespace("ruined_portal_swamp"));
+        UnripeStructurePodRecipeBuilder.recipe(ruinedSwampPortalPod, Items.CRYING_OBSIDIAN, Items.LILY_PAD)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_ruined_portal_swamp"));
+
+        ItemStack ruinedMountainPortalPod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        ruinedMountainPortalPod.set(ModDataComponents.STRUCTURELOCATION.get(), ResourceLocation.withDefaultNamespace("ruined_portal_mountain"));
+        UnripeStructurePodRecipeBuilder.recipe(ruinedMountainPortalPod, Items.CRYING_OBSIDIAN, Items.SNOW_BLOCK)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_ruined_portal_mountain"));
+
+        ItemStack ruinedOceanPortalPod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        ruinedOceanPortalPod.set(ModDataComponents.STRUCTURELOCATION.get(), ResourceLocation.withDefaultNamespace("ruined_portal_ocean"));
+        UnripeStructurePodRecipeBuilder.recipe(ruinedOceanPortalPod, Items.CRYING_OBSIDIAN, Items.MAGMA_BLOCK)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_ruined_portal_ocean"));
+
+        ItemStack ruinedNetherPortalPod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        ruinedNetherPortalPod.set(ModDataComponents.STRUCTURELOCATION.get(), ResourceLocation.withDefaultNamespace("ruined_portal_nether"));
+        UnripeStructurePodRecipeBuilder.recipe(ruinedNetherPortalPod, Items.CRYING_OBSIDIAN, Items.NETHERRACK)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_ruined_portal_nether"));
+
+        ItemStack ancientCityPod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        ancientCityPod.set(ModDataComponents.STRUCTURELOCATION.get(), ResourceLocation.withDefaultNamespace("ancient_city"));
+        UnripeStructurePodRecipeBuilder.recipe(ancientCityPod, Items.DEEPSLATE_BRICKS, Items.DEEPSLATE_BRICKS)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_ancient_city"));
+
+        ItemStack trailRuinsPod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        trailRuinsPod.set(ModDataComponents.STRUCTURELOCATION.get(), ResourceLocation.withDefaultNamespace("trail_ruins"));
+        UnripeStructurePodRecipeBuilder.recipe(trailRuinsPod, Items.MUD_BRICKS, Items.BRICKS)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_trail_ruins"));
+
+        ItemStack trialchamberPod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        trialchamberPod.set(ModDataComponents.STRUCTURELOCATION.get(), ResourceLocation.withDefaultNamespace("trial_chambers"));
+        UnripeStructurePodRecipeBuilder.recipe(trialchamberPod, Items.COPPER_BLOCK, Items.COPPER_BLOCK)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_trial_chambers"));
+
+        ItemStack minioutpostpod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        minioutpostpod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "mini_outpost"));
+        UnripeStructurePodRecipeBuilder.recipe(minioutpostpod, Items.GLOW_LICHEN, Items.ARROW)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_mini_outpost"));
+
+        ItemStack minimineshaftpostpod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        minimineshaftpostpod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "mini_mineshaft"));
+        UnripeStructurePodRecipeBuilder.recipe(minimineshaftpostpod, Items.GLOW_LICHEN, Items.RAIL)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_mini_mineshaft"));
+
+        ItemStack minijunglepod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        minijunglepod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "mini_jungle_pyramid"));
+        UnripeStructurePodRecipeBuilder.recipe(minijunglepod, Items.GLOW_LICHEN, Items.MOSSY_COBBLESTONE)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_mini_jungle_pyramid"));
+
+        ItemStack minidesertpod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        minidesertpod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "mini_desert_pyramid"));
+        UnripeStructurePodRecipeBuilder.recipe(minidesertpod, Items.GLOW_LICHEN, Items.SANDSTONE)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_mini_desert_pyramid"));
+
+        ItemStack miniigloopod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        miniigloopod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "mini_igloo"));
+        UnripeStructurePodRecipeBuilder.recipe(miniigloopod, Items.GLOW_LICHEN, Items.SNOW_BLOCK)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_mini_igloo"));
+
+        ItemStack minishipwreckpod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        minishipwreckpod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "mini_shipwreck"));
+        UnripeStructurePodRecipeBuilder.recipe(minishipwreckpod, Items.GLOW_LICHEN, Items.OAK_LOG)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_mini_shipwreck"));
+
+        ItemStack ministrongholdpod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        ministrongholdpod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "mini_stronghold"));
+        UnripeStructurePodRecipeBuilder.recipe(ministrongholdpod, Items.GLOW_LICHEN, Items.ENDER_EYE)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_mini_stronghold"));
+
+        ItemStack minimonumentpod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        minimonumentpod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "mini_monument"));
+        UnripeStructurePodRecipeBuilder.recipe(minimonumentpod, Items.GLOW_LICHEN, Items.PRISMARINE_SHARD)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_mini_monument"));
+
+        ItemStack minioceanruinspod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        minioceanruinspod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "mini_ocean_ruins"));
+        UnripeStructurePodRecipeBuilder.recipe(minioceanruinspod, Items.GLOW_LICHEN, Items.GRAVEL)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_mini_ocean_ruins"));
+
+        ItemStack minifortresspod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        minifortresspod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "mini_fortress"));
+        UnripeStructurePodRecipeBuilder.recipe(minifortresspod, Items.GLOW_LICHEN, Items.NETHER_BRICK)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_mini_fortress"));
+
+        ItemStack minitreasurepod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        minitreasurepod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "mini_buried_treasure"));
+        UnripeStructurePodRecipeBuilder.recipe(minitreasurepod, Items.GLOW_LICHEN, Items.MAP)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_mini_buried_treasure"));
+
+        ItemStack minimansion = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        minimansion.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "mini_mansion"));
+        UnripeStructurePodRecipeBuilder.recipe(minimansion, Items.GLOW_LICHEN, Items.DARK_OAK_PLANKS)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_mini_mansion"));
+
+        ItemStack miniendcity = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        miniendcity.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "mini_end_city"));
+        UnripeStructurePodRecipeBuilder.recipe(miniendcity, Items.GLOW_LICHEN, Items.END_STONE)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_mini_end_city"));
+
+        ItemStack minivillage = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        minivillage.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "mini_village"));
+        UnripeStructurePodRecipeBuilder.recipe(minivillage, Items.GLOW_LICHEN, Items.EMERALD)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_mini_village"));
+
+        ItemStack miniancientcity = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        miniancientcity.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "mini_ancient_city"));
+        UnripeStructurePodRecipeBuilder.recipe(miniancientcity, Items.GLOW_LICHEN, Items.DEEPSLATE_BRICKS)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_mini_ancient_city"));
+
+        ItemStack minitrailruin = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        minitrailruin.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "mini_trail_ruin"));
+        UnripeStructurePodRecipeBuilder.recipe(minitrailruin, Items.GLOW_LICHEN, Items.BRICKS)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_mini_trail_ruin"));
+
+        ItemStack minibastion = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        minibastion.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "mini_bastion"));
+        UnripeStructurePodRecipeBuilder.recipe(minibastion, Items.GLOW_LICHEN, Items.BLACKSTONE)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_mini_bastion"));
+
+        ItemStack minitrialchamber = new ItemStack(ModBlocks.STRUCTUREPOD.get());
+        minitrialchamber.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "mini_trial_chamber"));
+        UnripeStructurePodRecipeBuilder.recipe(minitrialchamber, Items.GLOW_LICHEN, Items.COPPER_BLOCK)
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath("bigsbiomemagicmod", "structurepod_mini_trial_chamber"));
+
+
     }}
