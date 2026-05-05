@@ -4,13 +4,23 @@ import com.biggggg5.bigsbiomemagicmod.block.ModBlocks;
 import com.biggggg5.bigsbiomemagicmod.block.entity.ModBlockEntities;
 import com.biggggg5.bigsbiomemagicmod.block.entity.renderer.BiomeChannelerBlockEntityRenderer;
 import com.biggggg5.bigsbiomemagicmod.component.ModDataComponents;
+import com.biggggg5.bigsbiomemagicmod.dataattachment.ModData;
 import com.biggggg5.bigsbiomemagicmod.effect.ModEffects;
+import com.biggggg5.bigsbiomemagicmod.entity.ModEntities;
 import com.biggggg5.bigsbiomemagicmod.item.ModCreativeModeTabs;
 import com.biggggg5.bigsbiomemagicmod.item.ModItems;
+import com.biggggg5.bigsbiomemagicmod.item.custom.util.FluteColors;
+import com.biggggg5.bigsbiomemagicmod.loot.ModLootModifiers;
+import com.biggggg5.bigsbiomemagicmod.particle.BrightRaidParticles;
+import com.biggggg5.bigsbiomemagicmod.particle.BrightTrialParticles;
+import com.biggggg5.bigsbiomemagicmod.particle.ModParticles;
 import com.biggggg5.bigsbiomemagicmod.potion.ModPotions;
 import com.biggggg5.bigsbiomemagicmod.recipe.ModRecipes;
-import net.minecraft.world.item.CreativeModeTabs;
+import com.biggggg5.bigsbiomemagicmod.sound.ModSounds;
+import net.minecraft.world.item.DyeColor;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
+import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -63,12 +73,22 @@ public class BigsBiomeMagicMod
 
         ModDataComponents.register(modEventBus);
 
+        ModSounds.register(modEventBus);
+
         ModEffects.register(modEventBus);
         ModPotions.register(modEventBus);
 
         ModBlockEntities.register(modEventBus);
 
         ModRecipes.register(modEventBus);
+
+        ModData.register(modEventBus);
+
+        ModEntities.register(modEventBus);
+
+        ModParticles.register(modEventBus);
+
+        ModLootModifiers.register(modEventBus);
 
 
         // Register the item to a creative tab
@@ -103,11 +123,37 @@ public class BigsBiomeMagicMod
         public static void onClientSetup(FMLClientSetupEvent event)
         {
 
-
         }
+
+        @SubscribeEvent
+        public static void onRegisterItemColors(RegisterColorHandlersEvent.Item event){
+            event.register(
+                    (stack, tintIndex) -> {
+                        FluteColors colors = stack.get(ModDataComponents.FLUTECOLORS.get());
+                        if (colors == null) return -1;
+
+                        return switch (tintIndex) {
+                            case 0 -> colors.color0().getTextureDiffuseColor();
+                            case 1 -> colors.color1().getTextureDiffuseColor();
+                            case 2 -> colors.color2().getTextureDiffuseColor();
+                            case 3 -> colors.color3().getTextureDiffuseColor();
+                            default -> -1;
+                        };
+                    },
+                    ModItems.PLANTFLUTE.get(),
+                    ModItems.STURDYPLANTFLUTE.get()
+            );
+        }
+
         @SubscribeEvent
         public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
             event.registerBlockEntityRenderer(ModBlockEntities.BIOMECHANNELER_BE.get(), BiomeChannelerBlockEntityRenderer::new);
+        }
+
+        @SubscribeEvent
+        public static void registerParticleFactories(RegisterParticleProvidersEvent event) {
+            event.registerSpriteSet(ModParticles.BRIGHT_TRIAL_PARTICLES.get(), BrightTrialParticles.Provider::new);
+            event.registerSpriteSet(ModParticles.BRIGHT_RAID_PARTICLES.get(), BrightRaidParticles.Provider::new);
         }
     }
 }

@@ -3,11 +3,13 @@ package com.biggggg5.bigsbiomemagicmod.item;
 import com.biggggg5.bigsbiomemagicmod.BigsBiomeMagicMod;
 import com.biggggg5.bigsbiomemagicmod.block.ModBlocks;
 import com.biggggg5.bigsbiomemagicmod.component.ModDataComponents;
+import com.biggggg5.bigsbiomemagicmod.item.custom.util.FluteColors;
 import com.biggggg5.bigsbiomemagicmod.potion.ModPotions;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionContents;
@@ -25,8 +27,11 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativetab.bigsbiomemagicmod.biome_magic_items"))
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.BIOMEGOOP);
+                        output.accept(ModItems.BATLEATHER);
                         output.accept(ModItems.BIOMEGOGGLES);
                         output.accept(ModItems.GLASSORB);
+                        output.accept(ModItems.MONSTERTRACKDUST);
+                        output.accept(ModItems.ALTIMIRROR);
                         output.accept(ModItems.UNATTUNEDBIOMECORE);
                         output.accept(ModItems.BIOMECORE);
                         output.accept(ModItems.STRUCTURESEEDS);
@@ -35,6 +40,38 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.IRONSTAFFOFSECRETPOWER);
                         output.accept(ModItems.GOLDSTAFFOFSECRETPOWER);
                         output.accept(ModItems.NETHERITESTAFFOFSECRETPOWER);
+                        output.accept(ModItems.BLACKPLANTFLUTETUBE);
+                        output.accept(ModItems.BLACKSTURDYPLANTFLUTETUBE);
+                        output.accept(ModItems.BLUEPLANTFLUTETUBE);
+                        output.accept(ModItems.BLUESTURDTPLANTFLUTETUBE);
+                        output.accept(ModItems.BROWNPLANTFLUTETUBE);
+                        output.accept(ModItems.BROWNSTURDYPLANTFLUTETUBE);
+                        output.accept(ModItems.CYANPLANTFLUTETUBE);
+                        output.accept(ModItems.CYANSTURDYPLANTFLUTETUBE);
+                        output.accept(ModItems.GRAYPLANTFLUTETUBE);
+                        output.accept(ModItems.GRAYSTURDYPLANTFLUTETUBE);
+                        output.accept(ModItems.GREENPLANTFLUTETUBE);
+                        output.accept(ModItems.GREENSTURDYPLANTFLUTETUBE);
+                        output.accept(ModItems.LIGHTBLUEPLANTFLUTETUBE);
+                        output.accept(ModItems.LIGHTBLUESTURDYPLANTFLUTETUBE);
+                        output.accept(ModItems.LIGHTGRAYPLANTFLUTETUBE);
+                        output.accept(ModItems.LIGHTGRAYSTURDYPLANTFLUTETUBE);
+                        output.accept(ModItems.LIMEPLANTFLUTETUBE);
+                        output.accept(ModItems.LIMESTURDYPLANTFLUTETUBE);
+                        output.accept(ModItems.MAGENTAPLANTFLUTETUBE);
+                        output.accept(ModItems.MAGENTASTURDYPLANTFLUTETUBE);
+                        output.accept(ModItems.ORANGEPLANTFLUTETUBE);
+                        output.accept(ModItems.ORANGESTURDYPLANTFLUTETUBE);
+                        output.accept(ModItems.PINKPLANTFLUTETUBE);
+                        output.accept(ModItems.PINKSTURDYPLANTFLUTETUBE);
+                        output.accept(ModItems.PURPLEPLANTFLUTETUBE);
+                        output.accept(ModItems.PURPLESTURDYPLANTFLUTETUBE);
+                        output.accept(ModItems.REDPLANTFLUTETUBE);
+                        output.accept(ModItems.REDSTURDYPLANTFLUTETUBE);
+                        output.accept(ModItems.WHITEPLANTFLUTETUBE);
+                        output.accept(ModItems.WHITESTURDYPLANTFLUTETUBE);
+                        output.accept(ModItems.YELLOWPLANTFLUTETUBE);
+                        output.accept(ModItems.YELLOWSTURDYPLANTFLUTETUBE);
 
                         output.accept(PotionContents.createItemStack(Items.POTION, ModPotions.BIOME_VISION_POTION));
                         output.accept(PotionContents.createItemStack(Items.SPLASH_POTION, ModPotions.BIOME_VISION_POTION));
@@ -53,7 +90,6 @@ public class ModCreativeModeTabs {
                     .withTabsBefore(ResourceLocation.fromNamespaceAndPath(BigsBiomeMagicMod.MOD_ID, "biome_magic_items_tab"))
                     .title(Component.translatable("creativetab.bigsbiomemagicmod.biome_magic_catalysts"))
                     .displayItems((itemDisplayParameters, output) -> {
-
 
                         ItemStack badlandscore = new ItemStack(ModItems.BIOMECORE.get());
                         badlandscore.set(ModDataComponents.BIOMELOCATION, ResourceLocation.withDefaultNamespace("badlands"));
@@ -375,6 +411,11 @@ public class ModCreativeModeTabs {
                         woodedbadlandscore.set(ModDataComponents.BIOMELOCATION, ResourceLocation.withDefaultNamespace("wooded_badlands"));
                         woodedbadlandscore.set(ModDataComponents.BIOMECATALYST, ResourceLocation.withDefaultNamespace("red_sand"));
                         output.accept(woodedbadlandscore);
+
+                        ItemStack wheatseedflute = new ItemStack(ModItems.PLANTFLUTE.get());
+                        wheatseedflute.set(ModDataComponents.SUMMONEDITEM, ResourceLocation.withDefaultNamespace("wheat_seeds"));
+                        wheatseedflute.set(ModDataComponents.FLUTECOLORS, new FluteColors(DyeColor.YELLOW, DyeColor.YELLOW, DyeColor.YELLOW, DyeColor.YELLOW));
+                        output.accept(wheatseedflute);
 
                         ItemStack pillagerpod = new ItemStack(ModBlocks.STRUCTUREPOD.get());
                         pillagerpod.set(ModDataComponents.STRUCTURELOCATION, ResourceLocation.withDefaultNamespace("pillager_outpost"));

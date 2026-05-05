@@ -149,26 +149,12 @@ public class StructurePodBlock extends BaseEntityBlock {
     private void spawnProtection(Player player, Level level) {
         BlockPos playerPos = player.blockPosition();
         ServerLevel serverLevel = (ServerLevel) level;
+        for (int x = -1; x <= 1; x++) {
+            for (int y = -1; y <= 1; y++){
+                for (int z = -1; z <= 1; z++){
 
-        serverLevel.setBlock(playerPos, Blocks.YELLOW_STAINED_GLASS.defaultBlockState(), 3);
-        serverLevel.setBlock(playerPos.offset(0, 1, 0), Blocks.YELLOW_STAINED_GLASS.defaultBlockState(), 3);
-        serverLevel.setBlock(playerPos.offset(0, 0, 1), Blocks.YELLOW_STAINED_GLASS.defaultBlockState(), 3);
-        serverLevel.setBlock(playerPos.offset(0, 0, -1), Blocks.YELLOW_STAINED_GLASS.defaultBlockState(), 3);
-        serverLevel.setBlock(playerPos.offset(0, 1, 1), Blocks.YELLOW_STAINED_GLASS.defaultBlockState(), 3);
-        serverLevel.setBlock(playerPos.offset(0, 1, -1), Blocks.YELLOW_STAINED_GLASS.defaultBlockState(), 3);
-        serverLevel.setBlock(playerPos.offset(1, 0, 0), Blocks.YELLOW_STAINED_GLASS.defaultBlockState(), 3);
-        serverLevel.setBlock(playerPos.offset(1, 0, 1), Blocks.YELLOW_STAINED_GLASS.defaultBlockState(), 3);
-        serverLevel.setBlock(playerPos.offset(1, 0, -1), Blocks.YELLOW_STAINED_GLASS.defaultBlockState(), 3);
-        serverLevel.setBlock(playerPos.offset(1, 1, 0), Blocks.YELLOW_STAINED_GLASS.defaultBlockState(), 3);
-        serverLevel.setBlock(playerPos.offset(1, 1, 1), Blocks.YELLOW_STAINED_GLASS.defaultBlockState(), 3);
-        serverLevel.setBlock(playerPos.offset(1, 1, -1), Blocks.YELLOW_STAINED_GLASS.defaultBlockState(), 3);
-        serverLevel.setBlock(playerPos.offset(-1, 0, 0), Blocks.YELLOW_STAINED_GLASS.defaultBlockState(), 3);
-        serverLevel.setBlock(playerPos.offset(-1, 0, 1), Blocks.YELLOW_STAINED_GLASS.defaultBlockState(), 3);
-        serverLevel.setBlock(playerPos.offset(-1, 0, -1), Blocks.YELLOW_STAINED_GLASS.defaultBlockState(), 3);
-        serverLevel.setBlock(playerPos.offset(-1, 1, 0), Blocks.YELLOW_STAINED_GLASS.defaultBlockState(), 3);
-        serverLevel.setBlock(playerPos.offset(-1, 1, 1), Blocks.YELLOW_STAINED_GLASS.defaultBlockState(), 3);
-        serverLevel.setBlock(playerPos.offset(-1, 1, -1), Blocks.YELLOW_STAINED_GLASS.defaultBlockState(), 3);
-    }
+                    serverLevel.setBlock(playerPos.offset(x, y, z), Blocks.YELLOW_STAINED_GLASS.defaultBlockState(), 3);
+            }}}}
 
     private boolean spawnStructure(ServerLevel level, BlockPos pos, ResourceLocation structureLocation) {
         if (structureLocation == null) {
@@ -244,7 +230,7 @@ public class StructurePodBlock extends BaseEntityBlock {
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
         if (level.getBlockEntity(pos) instanceof StructurePodBlockEntity be) {
             ResourceLocation rl = be.getResource();
-            if (rl != null && level.isClientSide) {
+            if (rl != null && !level.isClientSide) {
                 player.sendSystemMessage(Component.literal("This pod contains the power to spawn the "+ rl.getPath()));
             }
             return InteractionResult.SUCCESS;

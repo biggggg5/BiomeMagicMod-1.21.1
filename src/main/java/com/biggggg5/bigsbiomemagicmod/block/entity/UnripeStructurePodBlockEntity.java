@@ -1,6 +1,8 @@
 package com.biggggg5.bigsbiomemagicmod.block.entity;
 
 import com.biggggg5.bigsbiomemagicmod.block.ModBlocks;
+import com.biggggg5.bigsbiomemagicmod.component.ModDataComponents;
+import com.biggggg5.bigsbiomemagicmod.dataattachment.ModData;
 import com.biggggg5.bigsbiomemagicmod.recipe.ModRecipes;
 import com.biggggg5.bigsbiomemagicmod.recipe.UnripeStructurePodRecipe;
 import com.biggggg5.bigsbiomemagicmod.recipe.UnripeStructurePodRecipeInput;
@@ -12,6 +14,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -58,50 +61,54 @@ public class UnripeStructurePodBlockEntity extends BlockEntity {
 
 
     public boolean tryCraft() {
+        if (level != null && !level.isClientSide) {
 
-        UnripeStructurePodRecipeInput recipeInput = new UnripeStructurePodRecipeInput(inventory);
+            UnripeStructurePodRecipeInput recipeInput = new UnripeStructurePodRecipeInput(inventory);
 
-        RecipeManager recipeManager = level.getRecipeManager();
-        Optional<RecipeHolder<UnripeStructurePodRecipe>> recipeHolder =
-                recipeManager.getRecipeFor(ModRecipes.UNRIPE_STRUCTURE_POD_TYPE.get(), recipeInput, level);
+            RecipeManager recipeManager = level.getRecipeManager();
+            Optional<RecipeHolder<UnripeStructurePodRecipe>> recipeHolder =
+                    recipeManager.getRecipeFor(ModRecipes.UNRIPE_STRUCTURE_POD_TYPE.get(), recipeInput, level);
 
-        if (recipeHolder.isPresent()) {
-            UnripeStructurePodRecipe recipe = recipeHolder.get().value();
+            if (recipeHolder.isPresent()) {
+                UnripeStructurePodRecipe recipe = recipeHolder.get().value();
 
-            inventory.setStackInSlot(0, ItemStack.EMPTY);
-            inventory.setStackInSlot(1, ItemStack.EMPTY);
+                inventory.setStackInSlot(0, ItemStack.EMPTY);
+                inventory.setStackInSlot(1, ItemStack.EMPTY);
 
-            ItemStack result = recipe.assemble(recipeInput, level.registryAccess());
+                ItemStack result = recipe.assemble(recipeInput, level.registryAccess());
 
-            if (result.getItem() instanceof BlockItem blockItem) {
-                Block newBlock = blockItem.getBlock();
-                BlockState newState = newBlock.defaultBlockState();
+                if (result.getItem() instanceof BlockItem blockItem) {
+                    Block newBlock = blockItem.getBlock();
+                    BlockState newState = newBlock.defaultBlockState();
 
-                level.setBlock(worldPosition, newState, 3);
-                newBlock.setPlacedBy(level, worldPosition, newState, null, result);
+                    level.setBlockAndUpdate(worldPosition, newState);
+                    newBlock.setPlacedBy(level, worldPosition, newState, null, result);
 
-                if (newState.hasBlockEntity()) {
-                    BlockEntity newBlockEntity = level.getBlockEntity(worldPosition);
-                    if (newBlockEntity != null) {
-                        newBlockEntity.setChanged();
-                        level.sendBlockUpdated(worldPosition, newBlockEntity.getBlockState(), newBlockEntity.getBlockState(), 3);
+                    if (newState.hasBlockEntity()) {
+                        BlockEntity newBlockEntity = level.getBlockEntity(worldPosition);
+                        ResourceLocation rl = result.get(ModDataComponents.STRUCTURELOCATION);
+                        if (newBlockEntity != null && rl != null) {
+                            newBlockEntity.setData(ModData.LOC, rl);
+                            newBlockEntity.setChanged();
+                            level.sendBlockUpdated(worldPosition, level.getBlockEntity(worldPosition).getBlockState(), level.getBlockEntity(worldPosition).getBlockState(), 3);
+                        }
                     }
                 }
+                level.playSound(null, worldPosition, SoundEvents.CHORUS_FLOWER_GROW, SoundSource.BLOCKS, 1.0f, 1.0f);
+
+                return true;
             }
-            level.playSound(null, worldPosition, SoundEvents.CHORUS_FLOWER_GROW, SoundSource.BLOCKS, 1.0f, 1.0f);
+            level.playSound(null, worldPosition, SoundEvents.CHORUS_FLOWER_DEATH, SoundSource.BLOCKS, 1.0f, 1.0f);
+            BlockState particleState = ModBlocks.STRUCTUREPOD.get().defaultBlockState();
+            level.setBlockAndUpdate(worldPosition, Blocks.AIR.defaultBlockState());
 
-            return true;
+            double x = worldPosition.getX();
+            double y = worldPosition.getY();
+            double z = worldPosition.getZ();
+            ((ServerLevel) level).sendParticles(new BlockParticleOption(ParticleTypes.FALLING_DUST, particleState),
+                    x + 0.5, y + 1, z + 0.5, 20, .5, .5, .5, 0.5);
+
         }
-        level.playSound(null, worldPosition, SoundEvents.CHORUS_FLOWER_DEATH, SoundSource.BLOCKS, 1.0f, 1.0f);
-        BlockState particleState = ModBlocks.STRUCTUREPOD.get().defaultBlockState();
-        level.setBlockAndUpdate(worldPosition, Blocks.AIR.defaultBlockState());
-
-        double x = worldPosition.getX();
-        double y = worldPosition.getY();
-        double z = worldPosition.getZ();
-        ((ServerLevel)level).sendParticles(new BlockParticleOption(ParticleTypes.FALLING_DUST, particleState),
-                x+ 0.5, y+ 1, z+ 0.5, 20, .5, .5, .5, 0.5);
-
         return false;
     }
 

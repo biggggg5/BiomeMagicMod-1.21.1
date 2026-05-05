@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "bigsbiomemagicmod:item/altimirror_closed"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "bigsbiomemagicmod:open": 1.0
+      },
+      "model": "bigsbiomemagicmod:item/altimirror_open"
+    }
+  ]
+}

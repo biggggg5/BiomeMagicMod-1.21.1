@@ -25,6 +25,25 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     @Override
     protected void buildRecipes(RecipeOutput recipeOutput) {
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ALTIMIRROR.get())
+                .pattern(" B ")
+                .pattern(" IG")
+                .pattern("  B")
+                .define('G', Items.GLASS)
+                .define('I', Items.IRON_INGOT)
+                .define('B', ModItems.BATLEATHER.get())
+                .unlockedBy("has_bat_leather", has(ModItems.BATLEATHER.get()))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.MONSTERTRACKDUST.get(), 16)
+                .pattern("SSS")
+                .pattern("SUS")
+                .pattern("SSS")
+                .define('S', Items.REDSTONE)
+                .define('U', Items.GLOW_INK_SAC)
+                .unlockedBy("has_glow_ink_sac", has(Items.GLOW_INK_SAC))
+                .save(recipeOutput, "bigsbiomemagicmod:monster_tracking_dust");
+
         ItemStack snowyplainscore = new ItemStack(ModItems.BIOMECORE.get());
         snowyplainscore.set(ModDataComponents.BIOMELOCATION, ResourceLocation.withDefaultNamespace("snowy_plains"));
         snowyplainscore.set(ModDataComponents.BIOMECATALYST, ResourceLocation.withDefaultNamespace("snow_block"));

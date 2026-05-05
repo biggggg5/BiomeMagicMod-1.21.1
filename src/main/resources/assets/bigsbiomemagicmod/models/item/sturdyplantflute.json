@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "bigsbiomemagicmod:item/pre_tint_sturdypanflute_layer0",
+    "layer1": "bigsbiomemagicmod:item/pre_tint_sturdypanflute_layer1",
+    "layer2": "bigsbiomemagicmod:item/pre_tint_sturdypanflute_layer2",
+    "layer3": "bigsbiomemagicmod:item/pre_tint_sturdypanflute_layer3"
+  }
+}

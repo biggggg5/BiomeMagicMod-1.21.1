@@ -1,8 +1,10 @@
 package com.biggggg5.bigsbiomemagicmod.component;
 
 import com.biggggg5.bigsbiomemagicmod.BigsBiomeMagicMod;
+import com.biggggg5.bigsbiomemagicmod.item.custom.util.FluteColors;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.DyeColor;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -21,6 +23,12 @@ public class ModDataComponents {
 
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<ResourceLocation>> STRUCTURELOCATION = register("structurelocation",
             builder -> builder.persistent(ResourceLocation.CODEC));
+
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<ResourceLocation>> SUMMONEDITEM = register("summoneditem",
+            builder -> builder.persistent(ResourceLocation.CODEC));
+
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<FluteColors>> FLUTECOLORS = register("flutecolors",
+            builder -> builder.persistent(FluteColors.CODEC));
 
 
     private  static <T>DeferredHolder<DataComponentType<?>, DataComponentType<T>> register(String name,
